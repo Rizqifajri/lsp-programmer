@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { FaCartArrowDown } from "react-icons/fa";
-import logo from "../assets/logo_dbb.png";
 import Image from "next/image";
 import { CartSidebar } from "./cart-sidebar";
 import { RiDrinksFill } from "react-icons/ri";
@@ -20,30 +19,22 @@ export function Navigation() {
         <div className="flex justify-around items-center max-w-[700px] mx-auto p-4 rounded-t-xl shadow-t-lg">
           <Link href="/" className="text-lg font-bold">
             <GoHomeFill
-              className={`w-6 h-6 ${
-                pathname === "/" ? "text-yellow-500" : ""
-              }`}
+              className={`w-6 h-6 ${pathname === "/" ? "text-yellow-500" : ""}`}
             />
           </Link>
-          <Link href="/makanan" className="text-lg font-bold">
+          <Link href="/category/makanan?category=1" className="text-lg font-bold">
             <FaBowlFood
-              className={`w-6 h-6 ${
-                pathname === "/makanan" ? "text-yellow-500" : ""
-              }`}
+              className={`w-6 h-6 ${pathname === "/category/makanan" ? "text-yellow-500" : ""}`}
             />
           </Link>
-          <Link href="/minuman" className="text-lg font-bold">
+          <Link href="/category/minuman?category=2" className="text-lg font-bold">
             <RiDrinksFill
-              className={`w-6 h-6 ${
-                pathname === "/minuman" ? "text-yellow-500" : ""
-              }`}
+              className={`w-6 h-6 ${pathname === "/category/minuman" ? "text-yellow-500" : ""}`}
             />
           </Link>
-          <Link href="/appetizer" className="text-lg font-bold">
+          <Link href="/category/appetizer?category=3" className="text-lg font-bold">
             <SiCakephp
-              className={`w-6 h-6 ${
-                pathname === "/appetizer" ? "text-yellow-500" : ""
-              }`}
+              className={`w-6 h-6 ${pathname === "/category/appetizer" ? "text-yellow-500" : ""}`}
             />
           </Link>
           <CartSidebar />

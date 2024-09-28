@@ -8,8 +8,8 @@ import useCart from "@/hooks/use-cart";
 import { SkeletonCard } from "@/components/skeleton-card";
 
 
-export default function Minuman() {
-  const { data, isLoading } = useMenu();
+export default function Appetizer() {
+  const { data, isLoading } = useMenu(); // Add isLoading from hook
   const { addCartItem } = useCart();
   const category = useSearchParams().get("category");
 
@@ -20,7 +20,7 @@ export default function Minuman() {
   return (
     <section className="flex flex-col gap-5 h-screen "> {/* Container full height */}
       <h1 className="flex items-center gap-3 justify-center text-xl text-black text-center font-bold">
-        Pilih Minumanmu!
+        Pilih Appetizermu!
       </h1>
 
       <div className="flex-1 overflow-y-auto px-4 mb-24">
