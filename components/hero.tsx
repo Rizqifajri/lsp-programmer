@@ -1,44 +1,52 @@
-import NextLogo from "./next-logo";
-import SupabaseLogo from "./supabase-logo";
+"use client";
+import * as React from "react";
+import Autoplay from "embla-carousel-autoplay";
+import img1 from '../assets/promo/1.png';
+import img2 from '../assets/promo/2.png';
+import img3 from '../assets/promo/3.png';
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Image from "next/image";
+import logo from "../assets/dbb1.png";
 
-export default function Header() {
+const dataImg = [img2, img1, img3];
+
+export function Hero() {
+  // const plugin = React.useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+
   return (
-    <div className="flex flex-col gap-16 items-center">
-      <div className="flex gap-8 justify-center items-center">
-        <a
-          href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <SupabaseLogo />
-        </a>
-        <span className="border-l rotate-45 h-6" />
-        <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
-          <NextLogo />
-        </a>
-      </div>
-      <h1 className="sr-only">Supabase and Next.js Starter Template</h1>
-      <p className="text-3xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center">
-        The fastest way to build apps with{" "}
-        <a
-          href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-          target="_blank"
-          className="font-bold hover:underline"
-          rel="noreferrer"
-        >
-          Supabase
-        </a>{" "}
-        and{" "}
-        <a
-          href="https://nextjs.org/"
-          target="_blank"
-          className="font-bold hover:underline"
-          rel="noreferrer"
-        >
-          Next.js
-        </a>
-      </p>
-      <div className="w-full p-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent my-8" />
-    </div>
+    <>
+      <Image src={logo} alt="logo" className="w-32 mx-auto"/>
+      <Carousel
+        // plugins={[plugin.current]}
+        className="mx-auto w-full max-w-xl p-0 m-0"
+      // onMouseEnter={plugin.current.stop}
+      // onMouseLeave={plugin.current.reset}
+      >
+        <CarouselContent>
+          {dataImg.map((img, index) => (
+            <CarouselItem key={index}>
+              <Card className="w-full h-full border-none p-0">
+                <CardContent className="flex items-center justify-center">
+                  <Image
+                    className="object-cover w-full h-full rounded-md"
+                    src={img}
+                    alt={`carousel hero ${index + 1}`}
+                  />
+                </CardContent>
+              </Card>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="absolute left-9 lg:left-10 bg-yellow-300 " />
+        <CarouselNext className="absolute right-9 lg:right-10 bg-yellow-300" />
+      </Carousel>
+    </>
   );
 }
