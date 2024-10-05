@@ -18,16 +18,16 @@ import logo from "../assets/dbb1.png";
 const dataImg = [img2, img1, img3];
 
 export function Hero() {
-  // const plugin = React.useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+  const plugin = React.useRef(Autoplay({ delay: 1000, stopOnInteraction: true }));
 
   return (
     <>
       <Image src={logo} alt="logo" className="w-32 mx-auto"/>
       <Carousel
-        // plugins={[plugin.current]}
+        plugins={[plugin.current]}
         className="mx-auto w-full max-w-xl p-0 m-0"
-      // onMouseEnter={plugin.current.stop}
-      // onMouseLeave={plugin.current.reset}
+      onMouseEnter={plugin.current.stop}
+      onMouseLeave={plugin.current.reset}
       >
         <CarouselContent>
           {dataImg.map((img, index) => (

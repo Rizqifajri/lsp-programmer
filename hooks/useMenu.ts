@@ -3,12 +3,13 @@ import { supabase } from "@/utils/supabase/client";
 import { useEffect, useState } from "react";
 
 interface MenuItem {
-  id: string;
+  id: string; 
   name: string;
   description: string;
   price: number;
   image: string;
   category_id: number;
+  quantity: number;
 }
 
 export default function useMenu() {

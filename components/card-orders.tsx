@@ -7,7 +7,8 @@ import { foodData } from "@/data/data.food";
 import useCart from "@/hooks/use-cart";
 
 export const CardOrders = () => {
-  const { data: cartItems, addQuantity, removeQuantity } = useCart()
+  const { data: cartItems, addQuantity, removeQuantity, removeCartItem } = useCart()
+
 
   return (
     <>
@@ -24,11 +25,11 @@ export const CardOrders = () => {
                 <h1 className="text-sm text-yellow-700">{item.name}</h1>
                 <p className="text-[10px] text-foreground">{item.totalPrice}</p>
                 <div className="flex gap-3">
-                  <Button onClick={() => addQuantity(item.id)} className="text-[10px] rounded-full bg-yellow-300 h-5" variant={"outline"}>+</Button>
+                  <Button onClick={() => removeQuantity(item.id)} className="font-bold text-[10px] rounded-full bg-yellow-300 h-5" variant={"outline"}>-</Button>
                   <p className="text-[10px] text-foreground">{item.quantity}</p>
-                  <Button onClick={() => removeQuantity(item.id)} className="text-[10px] rounded-full bg-yellow-300 h-5" variant={"outline"}>-</Button>
+                  <Button onClick={() => addQuantity(item.id)} className="font-bold text-[10px] rounded-full bg-yellow-300 h-5" variant={"outline"}>+</Button>
+                  <Button onClick={() => removeCartItem(item.id)} className="text-[10px] rounded-full text-white bg-red-700 h-5" variant={"outline"}>X</Button>
                 </div>
-
               </div>
             </CardContent>
           </Card>
